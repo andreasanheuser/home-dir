@@ -1,0 +1,22 @@
+[user]
+    email = andreas.anheuser@sap.com
+    name = Andreas Anheuser
+[push]
+    default = simple
+[http]
+    proxy = http://proxy:8080
+[https]
+    proxy =
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    safecrlf = false
+    autocrlf = input
+[alias]
+    pr = !git fetch && git rebase
+    ps = push
+    co = checkout
+    c = commit
+    s = status
+    b = branch
+    as = !git add . && git status
