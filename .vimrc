@@ -8,12 +8,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+" Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'wincent/command-t'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 
 " Javascript specific plugins
 Plugin 'jelera/vim-javascript-syntax'
@@ -79,8 +83,8 @@ set hlsearch
 let mapleader=","
 
 " Enable folding
-au FileType javascript call JavaScriptFold()
-set foldlevelstart=99
+" au FileType javascript call JavaScriptFold()
+" set foldlevelstart=99
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -119,7 +123,7 @@ set visualbell
 set t_vb=
 
 " Enable use of the mouse for all modes
-set mouse=a
+" set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 "press <Enter> to continue
@@ -127,6 +131,7 @@ set cmdheight=2
 
 " Display line numbers on the left
 set number
+set relativenumber
 
 " allow toggling to relative line numbers
 function! NumberToggle()
@@ -178,10 +183,12 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
 noremap <F3> :Autoformat<CR><CR>
 map <C-n> :NERDTreeToggle<CR>
-nnoremap <C-i> :call NumberToggle()<cr>
+nnoremap <Leader>r :call NumberToggle()<cr>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 imap <C-c> <CR><Esc>O
-nnoremap <Space> za
+nnoremap <Space> z.
+nnoremap <Leader>d :TernDef<CR>
+imap jj <Esc>
 
 " mappings for command-t file search
 nnoremap <silent> <Leader>f :CommandT<CR>
